@@ -4,19 +4,84 @@
   <title>Offline Form</title>
   <meta name="description" content="Invio mail con local storage">
   <meta name="author" content="Leoni">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
+  <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+  <link href="css/jquery-ui.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   
+	
   <script src="js/jquery-2.1.4.min.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
 
 </head>	
 <body>  
 
-  <!--<div id="form-main">-->
+<div id="main">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Main page</h1>
+        <div class="col-md-4">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#ID form</th>
+                <th>Descrizione</th>
+                <th>Ultimo inserimento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob<span class="badge">39</span></td>
+                <td>Thornton</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+</div>
+
+<div id="page2" style="display:none">
   <div id="form-div">
 	<form class="form" id="form1">
 		<p class="name">
@@ -62,15 +127,21 @@ Ai sensi dell'articolo 13 D.Lgs n. 196/2003 (Codice Privacy) La informiamo che i
 		
 		
 	</form>
+	<div class="ui-widget" style="display: none; margin-bottom: 16px; margin-top: 16px" id="error">
+	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;" id="errorMessage">
+		<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+		<strong>Alert:</strong> Sample ui-state-error style.</p>
+		</div>
+	</div>
 	<div class="submit">
-		<button type="text" class="button-blue" value="SEND" id="send" >SEND</button>
+		<button type="text" class="button-blue" value="SEND" id="send" >Invia Modulo</button>
 		<button type="text" class="button-blue" value="Invia DB" id="invia" style="width: 50%;">Invia DB</button>
 		<button type="text" class="button-blue" value="Nuovo DB" id="clear" style="width: 50%;">Nuovo DB</button>
 		<!--<div class="ease"></div>-->
 	</div>
 	
 </div>
-  <!--</div>-->
+</div>
   
 </body>
 </html>

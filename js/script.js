@@ -1,14 +1,11 @@
-saveToLS = function(){
-	//$("#theform").validate({
-    //    rules: {
-    //       thefield: { digits:true, required: true }
-    //    },
-    //    tooltip_options: {
-    //       thefield: { placement: 'left' }
-    //    }
-    // });
-	if(validateEmail($("#email").val()) && ( $("#name").val() != "" || $("#name").val() != "Enter your full name") && $("#surname").val() != "" ){
+saveToLS = function(){	
+	//inializzo i tool tip
+	//$("#name").tooltip("destroy");
+	//$("#surname").tooltip("destroy");
+	//$("#email").tooltip("destroy");
 	
+	if(validateEmail($("#email").val()) && ( $("#name").val() != "" || $("#name").val() != "Enter your full name here") && $("#surname").val() != "" ){
+		$('#error').css("display","none");
 		if (localStorage.matrix){
 			matrix = JSON.parse(localStorage.matrix)
 		}else{
@@ -35,18 +32,39 @@ saveToLS = function(){
 		
 		matrix.push(array);
 		localStorage.matrix = JSON.stringify(matrix);
-		alert("Contatto #" + matrix.length + " aggiunto: " + array[2] + " " + array[3] + ". \n E' possibile inserire un nuovo contatto.");
+		alert("Contatto #" + matrix.length + " aggiunto: " + array[2] + " " + array[3] + ".\nE' possibile inserire un nuovo contatto.");
 		//window.load();
 		location.reload();
 		return false;
-	}else if ($("#name").val() == "" || $("#name").val() == "Enter your full name"){
-		alert("Campo nome obbligatorio");
+	}else if ($("#name").val() == "" || $("#name").val() == "Enter your full name here"){
+		//alert("Campo nome obbligatorio");
+		//$('#name').tooltip({
+        //items: "#name",
+        //content: "Campo nome obbligatorio"
+		//});
+		//$('#name').tooltip("open");
+		$('#errorMessage').html('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Attenzione:</strong> Campo nome obbligatorio.</p>')
+		$('#error').css("display","");
 		return false;
 	}else if ($("#surname").val() == ""){
-		alert("Campo cognome obbligatorio");
+		//alert("Campo cognome obbligatorio");
+		//$('#surname').tooltip({
+        //items: "#surname",
+        //content: "Campo cognome obbligatorio"
+		//});
+		//$('#surname').tooltip("open");
+		$('#errorMessage').html('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Attenzione:</strong> Campo cognome obbligatorio.</p>')
+		$('#error').css("display","");
 		return false;
 	}else if (!validateEmail($("#email").val())){
-		alert("Formato email errato");
+		//alert("Formato email errato");
+		//$('#email').tooltip({
+        //items: "#email",
+        //content: "Formato email non valido"
+		//});
+		//$('#email').tooltip("open");
+		$('#errorMessage').html('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Attenzione:</strong> Formato email non valido.</p>')
+		$('#error').css("display","");
 		return false;
 	}
 }
@@ -74,7 +92,7 @@ invia = function(){
 }
 
 function dialogBox() {
-    var email = prompt("Inserire la mail a cui si desidera ricevere il DB", "claudiacassan@autmercantile.it");
+    var email = prompt("Inserire la mail a cui si desidera ricevere il DB", "account@mail.com");
     
     if (email != null) {
 		return email;
@@ -109,10 +127,13 @@ $( document ).ready(function() {
 	$( "#send" ).click(function() {
 		saveToLS();
 	});
+	
 
 })
 
 function validateEmail(email) {
+	//se non c'è la mail va bene
+	if (email == '') return true; 
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
