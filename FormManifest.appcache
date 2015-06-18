@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# 2015-06-17 v1.0.2
+http://prototi.altervista.org/FormMail/css/style.css
+http://prototi.altervista.org/FormMail/js/script.js
+http://prototi.altervista.org/FormMail/js/jquery-2.1.4.min.js
+
+NETWORK:
+*
+
+FALLBACK:
+/ http://prototi.altervista.org/FormMail/offline.html
