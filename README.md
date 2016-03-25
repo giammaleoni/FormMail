@@ -8,3 +8,6 @@ After compiling registered modules can be sent as flat text in a mail content to
 It needs to be loaded first time over a network than the page automatically cache the page to allow the user to use the form without internet acces.
 To send the compiled forms internet is required
 
+## Todo
+Display dei moduli compilati direttamente dalla pagina web
+
